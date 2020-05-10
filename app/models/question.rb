@@ -5,4 +5,7 @@ class Question
   field :responses, type: Array
   field :category, type: Array
   field :createdBy, type: Reference
+
+  validates :question, :answer, :responses, presence: true
+  belongs_to :user 
 end

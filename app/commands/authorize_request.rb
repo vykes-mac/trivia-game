@@ -1,6 +1,6 @@
-class AuthorizeApiRequest
-  prepend SimpleCommand
+class AuthorizeRequest
   include Auth
+  prepend SimpleCommand
 
   def initialize(headers = {})
     @headers = headers
@@ -24,14 +24,10 @@ class AuthorizeApiRequest
   end
 
   def http_auth_header
+    puts 'hello'
     errors.add(:token, 'Missing token') unless headers['Authorization'].present?
-    headers['Authorization'].split(' ').last
-    # if headers['Authorization'].present?
-    #   return headers['Authorization'].split(' ').last
-    # else
-    #   errors.add(:token, 'Missing token')
-    # end
+    return if headers['Authorization'].nil?
 
-    # nil
+    headers['Authorization'].split(' ').last
   end
 end

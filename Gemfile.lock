@@ -134,6 +134,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    simple_command (0.1.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -162,12 +163,14 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   byebug
+  jwt
   jwt_sessions (~> 2.3)
   listen (~> 3.2)
   mongoid (~> 7.0.5)
   puma (~> 4.1)
   rack-cors
   rails (~> 6.0.3)
+  simple_command
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)

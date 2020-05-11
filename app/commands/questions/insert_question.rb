@@ -22,7 +22,7 @@ module Questions
     def insert_question
       ques = Question.new(question: question, answer: answer,
                           choices: choices, categories: categories,
-                          created_by: user.id)
+                          random: rand, created_by: user.id)
       errors.add :question_error, ques.errors unless ques.save!
     end
   end

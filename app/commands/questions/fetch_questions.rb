@@ -8,20 +8,36 @@ module Questions
     end
 
     def call
-      create_dto(insert_question)
+      create_dto(fetch_questions)
     end
 
     private
 
     attr_accessor :categories
 
-    def insert_question
-      return Question.all if categories.empty?
+    def fetch_questions
+      return fetch_all if categories.empty?
 
-      ques = Question.where(:categories.in => categories)
-      return errors.add :not_found, 'document not found' if ques.nil?
+      categ = fetch_categories
+      return errors.add :not_found, 'document not found' if categ.nil?
 
-      ques
+      categ
+    end
+
+    def fetch_all
+      random = rand
+      @res = Question.where(:random.gte => random).limit(10)
+      return @res unless @res.empty?
+
+      Question.where(:random.lte => random).limit(10)
+    end
+
+    def fetch_categories
+      random = rand
+      @res = Question.where(:random.gte => random, :categories.in => categories).limit(10)
+      return @res unless @res.empty?
+
+      Question.where(:random.lte => random, :categories.in => categories).limit(10)
     end
 
     def create_dto(doc)

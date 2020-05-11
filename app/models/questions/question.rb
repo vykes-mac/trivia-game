@@ -6,8 +6,9 @@ module Questions
     field :choices, type: Array
     field :categories, type: Array
     field :created_by
+    field :random
 
     validates :question, :answer, :choices, presence: true
-    index({ created_by: 1 }, { unique: true, background: true })
+    index({ categories: 1, random: 1 }, { unique: true, background: true })
   end
 end

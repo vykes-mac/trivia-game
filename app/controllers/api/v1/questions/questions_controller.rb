@@ -15,6 +15,16 @@ module Api
             render json: { error: command.errors }, status: :ok
           end
         end
+
+        def show
+          command = FetchQuestions.call(params[:categories])
+
+          if command.success?
+            render json: { questions: command.result }
+          else
+            render json: { error: command.errors }, status: :ok
+          end
+        end
       end
     end
   end

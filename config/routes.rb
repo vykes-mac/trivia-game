@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :questions do
         post 'insert', to: 'questions#insert'
+        get 'fetch', to: 'questions#show'
       end
       namespace :auth do
         post 'signin', to: 'auth#signin'

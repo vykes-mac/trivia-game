@@ -25,6 +25,16 @@ module Api
             render json: { error: command.errors }, status: :ok
           end
         end
+
+        def answer
+          command = AnswerQuestion.call(params[:id], params[:answer])
+
+          if command.success?
+            render json: { answer: command.result }
+          else
+            render json: { error: command.errors }, status: :ok
+          end
+        end
       end
     end
   end

@@ -10,6 +10,11 @@ module Api
                                   current_user)
           handle_command(:success, command)
         end
+
+        def highscores
+          command = GetHighscores.call
+          handle_command(:highscores, command)
+        end
       end
     end
   end

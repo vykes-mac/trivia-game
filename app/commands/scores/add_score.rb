@@ -4,11 +4,12 @@ module Scores
     include Scores
 
     def initialize(score, correct_streak, incorrect_streak,
-                   best_category)
+                   best_category, current_user)
       @score = score
       @correct_streak = correct_streak
       @incorrect_streak = incorrect_streak
       @best_category = best_category
+      @current_user = current_user
     end
 
     def call
@@ -17,13 +18,15 @@ module Scores
 
     private
 
-    attr_accessor :score, :correct_streak, :incorrect_streak, :best_category
+    attr_accessor :score, :correct_streak, :incorrect_streak, :best_category,
+                  :current_user
 
     def add_score
-      score = Score.new(score: score, correct_streak: correct_streak,
-                        incorrect_streak: incorrect_streak,
-                        best_category: best_category)
-      score.insert
+      @score = Score.new(score: score, correct_streak: correct_streak,
+                         incorrect_streak: incorrect_streak,
+                         best_category: best_category, owned_by: current_user.id)
+      @score.save!
+      true
     end
   end
 end

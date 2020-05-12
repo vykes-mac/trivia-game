@@ -1,6 +1,9 @@
 module Api
   module V1
-    class ScoresController < ApplicationController
+    module Scores
+      class ScoresController < ApplicationController
+        def add; end
+      end
     end
   end
 end

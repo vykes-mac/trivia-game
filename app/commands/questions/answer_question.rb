@@ -24,9 +24,16 @@ module Questions
     end
 
     def create_dto(doc)
+      scoring = if doc.answer == answer
+                  Rails.configuration.scoring[:increase]
+                else
+                  Rails.configuration.scoring[:decrease]
+                end
+
       dto = { user_answer: answer,
               correct_answer: doc.answer,
-              is_correct: doc.answer == answer }
+              is_correct: doc.answer == answer,
+              change_score_by: scoring }
 
       dto
     end

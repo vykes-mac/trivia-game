@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       namespace :scores do
         post 'add', to: 'scores#add'
         get  'highscores', to: 'scores#highscores'
+        get  'user', to: 'scores#user'
       end
     end
   end

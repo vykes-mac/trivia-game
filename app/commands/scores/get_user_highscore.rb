@@ -8,7 +8,7 @@ module Scores
     end
 
     def call
-      create_dto(user_score)
+      user_score
     end
 
     private
@@ -17,10 +17,6 @@ module Scores
 
     def user_score
       Score.where(owned_by: current_user.id).max(:score)
-    end
-
-    def create_dto(score)
-      { highscore: score.score }
     end
   end
 end

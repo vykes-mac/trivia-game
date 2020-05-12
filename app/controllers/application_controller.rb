@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::API
   include Auth
   include Questions
+  include Scores
   before_action :authenticate_request
   attr_reader :current_user
 

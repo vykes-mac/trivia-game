@@ -8,11 +8,7 @@ module Api
                                   params[:incorrect_streak],
                                   params[:best_category],
                                   current_user)
-          if command.success?
-            render json: { success: true }
-          else
-            render json: { error: command.errors }, status: :ok
-          end
+          handle_command(:success, command)
         end
       end
     end

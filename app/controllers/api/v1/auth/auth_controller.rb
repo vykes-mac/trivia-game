@@ -6,23 +6,13 @@ module Api
 
         def signin
           command = AuthenticateUser.call(params[:email], params[:password])
-
-          if command.success?
-            render json: { auth_token: command.result }
-          else
-            render json: { error: command.errors }, status: :unauthorized
-          end
+          handle_command(:auth_token, command)
         end
 
         def signup
           command = SignUpUser.call(params[:username], params[:email],
                                     params[:password])
-
-          if command.success?
-            render json: { auth_token: command.result }
-          else
-            render json: { error: command.errors }, status: :unauthorized
-          end
+          handle_command(:auth_token, command)
         end
       end
     end

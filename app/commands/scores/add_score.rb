@@ -25,7 +25,8 @@ module Scores
       @score = Score.new(score: score, correct_streak: correct_streak,
                          incorrect_streak: incorrect_streak,
                          best_category: best_category, owned_by: current_user.id)
-      @score.save!
+
+      errors.add :question_error, @score.errors unless @score.save!
       true
     end
   end

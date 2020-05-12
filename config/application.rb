@@ -24,6 +24,11 @@ module TriviaGame
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     config.autoload_paths << Rails.root.join('lib')
+    # scoring values for correct and incorrect answer
+    config.scoring = {
+      increase: 4,
+      decrease: -1
+    }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
@@ -33,11 +38,5 @@ module TriviaGame
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-
-    # scoring values for correct and incorrect answer
-    config.scoring = {
-      increase: 4,
-      decrease: -1
-    }
   end
 end

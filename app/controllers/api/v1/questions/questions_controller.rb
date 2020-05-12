@@ -8,32 +8,17 @@ module Api
                                         params[:choices],
                                         params[:categories],
                                         current_user)
-
-          if command.success?
-            render json: { success: true }
-          else
-            render json: { error: command.errors }, status: :ok
-          end
+          handle_command(:success, command)
         end
 
         def show
           command = FetchQuestions.call(params[:categories])
-
-          if command.success?
-            render json: { questions: command.result }
-          else
-            render json: { error: command.errors }, status: :ok
-          end
+          handle_command(:questions, command)
         end
 
         def answer
           command = AnswerQuestion.call(params[:id], params[:answer])
-
-          if command.success?
-            render json: { answer: command.result }
-          else
-            render json: { error: command.errors }, status: :ok
-          end
+          handle_command(:answer, command)
         end
       end
     end

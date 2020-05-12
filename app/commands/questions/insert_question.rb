@@ -24,6 +24,7 @@ module Questions
                           choices: choices, categories: categories,
                           random: rand, created_by: user.id)
       errors.add :question_error, ques.errors unless ques.save!
+      true
     end
   end
 end

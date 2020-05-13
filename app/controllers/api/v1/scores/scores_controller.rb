@@ -20,6 +20,11 @@ module Api
           command = GetUserHighscore.call(current_user)
           handle_command(:highscore, command)
         end
+
+        def best_category
+          command = GetBestCategory.call(current_user)
+          handle_command(:best_category, command)
+        end
       end
     end
   end

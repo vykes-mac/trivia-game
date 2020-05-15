@@ -12,7 +12,7 @@ module Scores
     def highscores
       top = Score.all.order_by(score: :desc).limit(10).to_a
       bottom = Score.all.order_by(score: :asc).limit(10).to_a
-      (top + bottom).uniq
+      (top + bottom.reverse).uniq
     end
   end
 end

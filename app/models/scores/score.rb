@@ -4,7 +4,7 @@ module Scores
     field :score, type: Integer
     field :correct_streak, type: Integer
     field :incorrect_streak, type: Integer
-    field :best_category, type: String,
+    field :best_category, type: String
     field :username, type: String
     field :owned_by
 

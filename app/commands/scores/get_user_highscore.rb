@@ -16,7 +16,7 @@ module Scores
     attr_accessor :current_user
 
     def user_score
-      Score.where(owned_by: current_user.id).max(:score)
+      Score.where(owned_by: current_user.id).order_by(score: :desc).limit(1)
     end
   end
 end

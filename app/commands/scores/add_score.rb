@@ -24,7 +24,9 @@ module Scores
     def add_score
       @score = Score.new(score: score, correct_streak: correct_streak,
                          incorrect_streak: incorrect_streak,
-                         best_category: best_category, owned_by: current_user.id)
+                         best_category: best_category,
+                         username: current_user.username,
+                         owned_by: current_user.id)
 
       errors.add :question_error, @score.errors unless @score.save!
       true

@@ -20,6 +20,11 @@ module Api
           command = AnswerQuestion.call(params[:id], params[:answer])
           handle_command(:answer, command)
         end
+
+        def categories
+          command = GetCategories.call
+          handle_command(:categories, command)
+        end
       end
     end
   end

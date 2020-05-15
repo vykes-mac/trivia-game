@@ -4,7 +4,7 @@ module Questions
     include Questions
 
     def call
-      @ques = insert_question
+      @ques = categories
     end
 
     private

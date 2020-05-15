@@ -10,6 +10,7 @@ Rails.application.routes.draw do
         post 'insert', to: 'questions#insert'
         get 'fetch', to: 'questions#show'
         get 'answer', to: 'questions#answer'
+        get 'categories', to: 'questions#categories'
       end
 
       namespace :scores do

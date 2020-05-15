@@ -17,7 +17,6 @@ Rails.application.routes.draw do
         post 'add', to: 'scores#add'
         get  'highscores', to: 'scores#highscores'
         get  'user', to: 'scores#user'
-        get  'user/best_category', to: 'scores#best_category'
       end
     end
   end

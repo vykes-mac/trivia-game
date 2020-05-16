@@ -11,7 +11,8 @@ module Auth
 
     def call
       @user = insert_user
-      JsonWebToken.encode(user_id: @user.id.$oid) if @user
+
+      JsonWebToken.encode(user_id: @user.id) if @user
     end
 
     private

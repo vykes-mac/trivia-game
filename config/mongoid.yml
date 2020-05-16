@@ -136,7 +136,7 @@ test:
 production:
   clients:
     default:
-      uri: <%= ENV['MONGODB_URI'] %>
+      uri: mongodb://heroku_26ktv6r7:qi1vaveupp707tl99hhqje0tcl@ds147125.mlab.com:47125/heroku_26ktv6r7
     options:
       skip_version_check: true
     safe: true

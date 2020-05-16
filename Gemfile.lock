@@ -167,7 +167,7 @@ DEPENDENCIES
   jwt_sessions (~> 2.3)
   listen (~> 3.2)
   mongoid (~> 7.0.5)
-  pg (~> 1.2.3)
+  pg
   puma (~> 4.1)
   rack-cors
   rails (~> 6.0.3)

@@ -87,18 +87,14 @@ development:
   options:
     # Includes the root model name in json serialization. (default: false)
     # include_root_in_json: false
-
     # Include the _type field in serialization. (default: false)
     # include_type_for_serialization: false
-
     # Preload all models in development, needed when models use
     # inheritance. (default: false)
     # preload_models: false
-
     # Raise an error when performing a #find and the document is not found.
     # (default: true)
-    raise_not_found_error: false
-
+    # raise_not_found_error: true
     # Raise an error when defining a scope with the same name as an
     # existing method. (default: false)
     # scope_overwrite_exception: false
@@ -136,7 +132,7 @@ test:
 production:
   clients:
     default:
-      uri: mongodb://heroku_26ktv6r7:qi1vaveupp707tl99hhqje0tcl@ds147125.mlab.com:47125/heroku_26ktv6r7
-    options:
-      skip_version_check: true
-    safe: true
+      uri: <%= ENV['MONGODB_URI'] %>
+      options:
+        skip_version_check: true
+        safe: true
